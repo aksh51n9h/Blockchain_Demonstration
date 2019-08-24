@@ -10,4 +10,8 @@ class Block:
         self.__previous_hash = previous_hash
 
     def __hash_data(self):
-        return hashlib.sha256(str(self.__index) + self.__data + self.__timestamp).hexdigest()
+        encoded_data = (str(self.__index) + str(self.__data) + str(self.__timestamp)).encode()
+        return hashlib.sha256(encoded_data).hexdigest()
+
+    def get_self_hash(self):
+        return self.__self_hash
