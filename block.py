@@ -1,8 +1,10 @@
 import hashlib
 
+from data import Data
+
 
 class Block:
-    def __init__(self, index, data, timestamp, previous_hash=0):
+    def __init__(self, index, data: Data, timestamp, previous_hash=0):
         self.__index = index
         self.__data = data
         self.__timestamp = timestamp
@@ -15,3 +17,9 @@ class Block:
 
     def get_self_hash(self):
         return self.__self_hash
+
+    def get_prev_hash(self):
+        return self.__previous_hash
+
+    def get_data(self):
+        return self.__data
